@@ -1,0 +1,65 @@
+{% load static %}
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cake Recipe</title>
+		<link rel="stylesheet" href="{% static 'recipe/recipe.css' %}" />
+	</head>
+	<body>
+		<div class="recipe"><p>Recipe</p></div>
+		<div class="top-left-nav">
+			<a class="back" href="{% url 'recipe:index' %}" title="back to main">Back to main</a>
+			{% if previous_recipe %}
+			<a class="previous" href="{% url 'recipe:recipe' recipe_id=previous_recipe.id %}">Previous</a>
+			{% endif %} {% if next_recipe %}
+			<a class="next" href="{% url 'recipe:recipe' recipe_id=next_recipe.id %}">Next</a>
+			{% endif %}
+		</div>
+		<div class="wrap">
+			<div class="wrap-title"><p>{{recipe.title}}</p></div>
+			<div class="line"><hr /></div>
+			<div class="wrap-desc">
+				<p>"This version of the recipe is fast and quick and your family and friends will love it."</p>
+			</div>
+			<div class="wrap-img">
+				<img src="{{recipe.img}}" alt="Chocolate Cake" />
+				<table class="table-1">
+					<tr>
+						<th>Difficulty</th>
+						<th>Preparation</th>
+						<th>Cooking</th>
+						<th>Total time</th>
+					</tr>
+					<tr>
+						<td>{{recipe.difficulty}}</td>
+						<td>{{recipe.prep}} min</td>
+						<td>{{recipe.cooking}} min</td>
+						<td>{{recipe.total}} min</td>
+					</tr>
+				</table>
+			</div>
+			<div class="wrap-col">
+				<div class="col1 col">
+					<h2>Ingredientes</h2>
+					<div>
+						{% for ingredients in ingredients_list %} {% for i in ingredients %}
+						<li class="ingredients"><p class="p90">{{i}}</p></li>
+						{% endfor %} {% endfor %}
+					</div>
+				</div>
+				<div class="col2 col">
+					<h2>Instructions</h2>
+					<div class="instruction">
+						<ol class="steps">
+							{% for instruction in instruction_list %} {% for i in instruction %}
+							<li class="text">{{i}}</li>
+							{% endfor %} {% endfor %}
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

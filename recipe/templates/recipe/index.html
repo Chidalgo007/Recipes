@@ -1,0 +1,23 @@
+{% load static %}
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cake Recipe</title>
+		<link rel="stylesheet" href="{% static 'recipe/style.css' %}" />
+	</head>
+	<body>
+		<div class="recipe-head"></div>
+		{% for i in recipes %}
+		<a href="{% url 'recipe:recipe' i.id %}">
+			<div class="flex">
+				<div class="img">
+					<img src="{{i.img}}" alt="Chocolate Cake" />
+				</div>
+				<div class="title"><p>{{i.title}}</p></div>
+			</div>
+		</a>
+		{% endfor %}
+	</body>
+</html>

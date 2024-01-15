@@ -1,0 +1,195 @@
+:root {
+	--blue: rgb(7, 30, 110);
+}
+* {
+	padding: 0;
+	margin: 0;
+	overflow: auto;
+	font-family: Arial;
+}
+body {
+	background-color: white;
+}
+/* top lef nav */
+.top-left-nav {
+	position: absolute;
+	top: 10;
+	left: 15;
+}
+.back,
+.previous,
+.next {
+	padding: 0px 5px;
+	text-decoration: none;
+	color: #6c829d;
+}
+.previous {
+	border-right: 1px solid #6c829d;
+	border-left: 1px solid #6c829d;
+}
+/* main */
+.recipe p {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 35;
+	background-color: black;
+	margin: auto;
+	width: fit-content;
+	color: white;
+	padding: 8px 20px;
+	font-weight: 600;
+	z-index: 2;
+}
+
+.wrap {
+	position: relative;
+	margin: 60px 8px 20px 8px;
+	padding: 0px 8px 20px 8px;
+	background-color: white;
+	box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1);
+}
+.wrap-title {
+	margin: auto;
+	max-width: fit-content;
+	margin-top: 35px;
+	margin-bottom: 3.5%;
+	font-size: 2em;
+	font-weight: bolder;
+}
+.line {
+	margin: auto;
+	width: 150px;
+	margin-top: 3.5%;
+	margin-bottom: 3.5%;
+}
+.wrap-desc {
+	margin: auto;
+	text-align: center;
+	font-weight: bold;
+}
+.wrap-img {
+	position: relative;
+	margin: auto;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+.wrap-img img {
+	display: block;
+	width: 100%;
+	max-height: 400px;
+	min-height: 200px;
+	object-fit: cover;
+}
+.table-1 {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	color: white;
+	background-color: #6c829d90;
+}
+.table-1 th {
+	vertical-align: bottom;
+	padding-bottom: 8px;
+	font-size: 14px;
+}
+.table-1 td {
+	text-align: center;
+	vertical-align: text-top;
+	font-size: 12px;
+}
+/* (ingredients & instructions) */
+.wrap-col {
+	margin: auto;
+	margin-bottom: 7%;
+}
+.col {
+	width: 100%;
+}
+.col h2 {
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 15px;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	border-bottom: 5px solid #6c829d;
+}
+.col1 {
+	display: inline-block;
+	margin-bottom: 20px;
+}
+/* ingredients */
+.ingredients {
+	padding: 10px 0px;
+	display: flex;
+	align-items: center;
+}
+.ingredients::before {
+	content: "";
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+	background-color: #6c829d;
+	margin-right: 0.5rem;
+}
+.p90 {
+	display: inline-block;
+	width: 90%;
+	font-size: 14px;
+}
+
+/*  instruction Steps */
+.steps {
+	counter-reset: count;
+	list-style-position: inside;
+}
+.steps li {
+	counter-increment: count;
+}
+.steps li::marker {
+	text-align: center;
+	white-space: pre-wrap;
+	content: "Step " counter(count) " \A";
+	font-size: 140%;
+	font-weight: bold;
+	margin-top: 10px;
+}
+/*  instruction text */
+.text {
+	line-height: 1.7;
+	text-align: justify;
+	font-size: 14px;
+	padding-bottom: 10px;
+}
+
+@media only screen and (min-width: 769px) {
+	.wrap {
+		margin: 50px auto 80px auto;
+		padding: 0px 30px 30px 30px;
+		min-width: 350px;
+		max-width: 650px;
+	}
+	.recipe {
+		top: 45px;
+	}
+
+	.table-1 {
+		height: 80px;
+	}
+	.table-1 th {
+		font-size: 16px;
+	}
+	.table-1 td {
+		font-size: 14px;
+	}
+	.col {
+		width: 45%;
+	}
+	.col1 {
+		margin-right: 10%;
+	}
+	.col2 {
+		float: right;
+	}
+}
