@@ -77,12 +77,9 @@ WSGI_APPLICATION = 'recipes.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 # Use SQLite for local development
-if 'HEROKU_POSTGRESQL_MAROON_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.config(default=os.environ.get('HEROKU_POSTGRESQL_MAROON_URL'))
-    }
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {'default': dj_database_url.config(conn_max_age=600)}
 else:
-    # Assuming you are using SQLite for local development
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
